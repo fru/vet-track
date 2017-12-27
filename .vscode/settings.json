@@ -4,6 +4,7 @@
         ".vscode/": true,
         ".git/": true,
         "app/**/*.js": true,
+        "app/**/*.css": true,
         "hooks": true,
         "platforms": true,
         "LICENSE": true,

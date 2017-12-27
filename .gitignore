@@ -47,5 +47,4 @@ captures/
 # Nativescript specific
 platforms/
 node_modules/
-app/*.js
 
