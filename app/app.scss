@@ -16,6 +16,27 @@ The imported CSS rules must precede all other types of rules.
 The following CSS rule changes the font size of all UI
 components that have the btn class name.
 */
-.btn {
-    font-size: 20;
+.btn-skip {
+    background-color: #ffabbf;
 }
+
+.btn-save {
+    background-color: #abd2ff;
+}
+
+.btn-create {
+    background-color: #fff5ab;
+}
+
+.places-list {
+    font-size: 18px;
+    margin-top: 20px;
+    margin: 12px;
+    separator-color: transparent;
+    .item {
+        padding: 18px 7px;
+    }
+}
+
+
+//#fff5ab

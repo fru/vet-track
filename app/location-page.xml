@@ -1,0 +1,28 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+    
+    <Page.actionBar>
+        <ActionBar title="My App" icon="" class="action-bar">
+            <StackLayout orientation="horizontal">
+                <Label text="Tracking und Alarm" verticalAlignment="center" />
+                <Switch checked="true" verticalAlignment="center" />
+            </StackLayout>
+        </ActionBar>
+    </Page.actionBar>
+    
+    <GridLayout rows="*,60">
+    
+        <StackLayout row="0" padding="20">        
+            <TextField text="{{ filter }}" hint="Ort eingeben" />
+            <ListView items="{{ items }}" class="places-list">
+                <ListView.itemTemplate>
+                    <Label text="{{ $value }}" textWrap="true" class="item" />
+                </ListView.itemTemplate>
+            </ListView> 
+        </StackLayout>
+        
+        <GridLayout row="1" columns="*">
+            <Button col="0" class="btn-create" text="{{ filter + ' Hinzufügen'}}" tap="onTap"></Button>
+        </GridLayout>
+    </GridLayout>
+</Page>
+

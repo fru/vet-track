@@ -1,3 +1,7 @@
+declare var android: any;
+declare var com: any;
+declare var java: any;
+
 import { EventData } from 'data/observable';
 import { Page } from 'ui/page';
 import { HelloWorldModel } from './main-view-model';
@@ -9,6 +13,7 @@ import { TimePicker } from "ui/time-picker";
 export function onPickerLoaded(args: EventData) {
     let timePicker = <TimePicker>args.object;
 
+    timePicker.android.setIs24HourView(java.lang.Boolean.TRUE);
     timePicker.hour = 9;
     timePicker.minute = 25;
 }

@@ -8,7 +8,7 @@ export class HelloWorldModel extends Observable {
 
     constructor() {
         super();
-        this.items = this._refilter();
+        this.items = ['test', 'test1', 'test2', 'test', 'test1', 'test2', 'test', 'test1', 'test2', 'test', 'test1', 'test2']
         this.on(Observable.propertyChangeEvent, (e: any) => {
             if (e.propertyName === "filter") this.set("items", this._refilter());
         });
