@@ -1,0 +1,15 @@
+{
+    "files.exclude": {
+        "**/node_modules/": true,
+        ".vscode/": true,
+        ".git/": true,
+        "app/**/*.js": true,
+        "hooks": true,
+        "platforms": true,
+        "LICENSE": true,
+        "BUILD.md": true,
+        "tsconfig.json": true,
+        ".gitattributes": true,
+        ".gitignore": true
+    }
+}
