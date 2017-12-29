@@ -1,0 +1,32 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+    
+    <Page.actionBar>
+        <ActionBar title="Zeitraum" class="action-bar">
+            <NavigationButton text="Zurück" android.systemIcon="ic_menu_back" android.position="actionBar" tap="onNavBtnTap"/>
+        </ActionBar>
+    </Page.actionBar>
+
+    <GridLayout rows="*,60">
+        <ScrollView row="0">
+            <StackLayout>
+                
+                <GridLayout columns="70,*">
+                    <Label col="0" paddingLeft="20" text="Von" verticalAlignment="center" horizontalAlignment="right" />
+                    <TimePicker col="1" loaded="onPickerLoaded" verticalAlignment="center"></TimePicker>
+                </GridLayout>
+                
+                <GridLayout columns="70,*">
+                    <Label col="0" paddingLeft="20" text="Bis" verticalAlignment="center" horizontalAlignment="right" />
+                    <TimePicker col="1" loaded="onPickerLoaded" verticalAlignment="center"></TimePicker>
+                </GridLayout>
+
+            </StackLayout>
+        </ScrollView>
+        <GridLayout row="1" columns="*,*">
+            <Button col="0" class="btn-skip" text="Ohne Zeit" tap="onTap"></Button>
+            <Button col="1" class="btn-save" text="Übernehmen" tap="onTap"></Button>
+        </GridLayout>
+    </GridLayout>
+
+</Page>
+
