@@ -94,20 +94,31 @@ export function navigatingTo(args: EventData) {
 
     googleApiClient.connect();*/
 
-    const LocationResult = com.google.android.gms.location.LocationResult;
+    /*const LocationResult = com.google.android.gms.location.LocationResult;
     com.pip3r4o.android.app.IntentService.extend('com.my.IntentService', {
         onHandleIntent: function (intent) {
             const loc = LocationResult.extractResult(intent).getLastLocation();
         }
+    });*/
+
+    //let context = (<android.content.Context>appModule.android.context);
+    //const intent = new android.content.Intent(context, com.my.IntentService.class);
+    //const pendingIntent = android.app.PrendingIntent.getService(context, 0, intent, android.app.PrendingIntent.FLAG_UPDATE_CURRENT);
+
+    //var powerManager = (<android.content.Context>appModule.android.context).getSystemService(android.content.Context.POWER_SERVICE);
+    //var lock = powerManager.newWakeLock(android.os.PowerManager.FULL_WAKE_LOCK, "TestTagVetTrack");
+    //lock.acquire();
+
+    var loaded = false;
+    var _player = new TNSPlayer();
+    _player.initFromFile({
+        audioFile: '~/audio/ding.mp3', // ~ = app directory
+        loop: false,
+        completeCallback: _trackComplete.bind(this),
+        errorCallback: _trackError.bind(this)
+    }).then(() => {
+        loaded = true;
     });
-
-    let context = (<android.content.Context>appModule.android.context);
-    const intent = new android.content.Intent(context, com.my.IntentService.class);
-    const pendingIntent = android.app.PrendingIntent.getService(context, 0, intent, android.app.PrendingIntent.FLAG_UPDATE_CURRENT);
-
-    var powerManager = (<android.content.Context>appModule.android.context).getSystemService(android.content.Context.POWER_SERVICE);
-    var lock = powerManager.newWakeLock(android.os.PowerManager.FULL_WAKE_LOCK, "TestTagVetTrack");
-    lock.acquire();
 
     Permissions.requestPermission(android.Manifest.permission.ACCESS_FINE_LOCATION, "Test").then(() => {
         var androidLocationManager = (<android.content.Context>appModule.android.context).getSystemService(android.content.Context.LOCATION_SERVICE);
@@ -116,7 +127,9 @@ export function navigatingTo(args: EventData) {
         let listener = new android.location.LocationListener({
             onLocationChanged: function (location: android.location.Location) {
                 console.log(JSON.stringify(location)); 
-                var _player = new TNSPlayer();
+                
+                _player.play();
+                /*var _player = new TNSPlayer();
                 _player.initFromFile({
                     audioFile: '~/audio/ding.mp3', // ~ = app directory
                     loop: false,
@@ -124,8 +137,9 @@ export function navigatingTo(args: EventData) {
                     errorCallback: _trackError.bind(this)
                 }).then(() => {
                     _player.play();
-                });
-                androidLocationManager.removeUpdates(listener);
+                });*/
+                
+                //androidLocationManager.removeUpdates(listener);
             },
 
             onProviderDisabled: function (provider) {
@@ -140,7 +154,7 @@ export function navigatingTo(args: EventData) {
                 //
             }
         });
-        androidLocationManager.requestLocationUpdates(1000, 0, criteria, listener, pendingIntent);
+        androidLocationManager.requestLocationUpdates(1000, 0, criteria, listener, null);
     });
 
 
@@ -179,7 +193,7 @@ export function navigatingTo(args: EventData) {
 
     let page = <Page>args.object;
 
-    var _player = new TNSPlayer();
+    /*var _player = new TNSPlayer();
     _player.initFromFile({
         audioFile: '~/audio/ding.mp3', // ~ = app directory
         loop: false,
@@ -187,10 +201,10 @@ export function navigatingTo(args: EventData) {
         errorCallback: _trackError.bind(this)
     }).then(() => {
         _player.play();
-    });
+    });*/
 
-    geolocation.enableLocationRequest();
-    console.log(geolocation.getCurrentLocation({ desiredAccuracy: Accuracy.high, maximumAge: 5000, timeout: 20000 }));
+    //geolocation.enableLocationRequest();
+    //console.log(geolocation.getCurrentLocation({ desiredAccuracy: Accuracy.high, maximumAge: 5000, timeout: 20000 }));
     
     /*var dialogs = require("ui/dialogs");
     dialogs.alert("Your message").then(function() {
